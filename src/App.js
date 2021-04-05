@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+
+import Header from './components/header/Header.js';
+import Categories from './components/storefront/Categories.js';
 import './App.css';
+import store from './store/index.js';
+import Footer from './components/footer/Footer.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Provider store={store()}>
+          <Header />
+          <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '85vh' }} />
+          <Footer />
+        </Provider>
+      </Container>
+    </React.Fragment>
   );
 }
 
