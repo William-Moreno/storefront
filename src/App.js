@@ -17,7 +17,8 @@ function App() {
       <Container maxWidth="lg">
         <Provider store={store()}>
           <Header />
-          <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '85vh' }} />
+          <Categories />
+          <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '75vh' }} />
           <Footer />
         </Provider>
       </Container>

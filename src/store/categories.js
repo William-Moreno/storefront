@@ -28,6 +28,7 @@ export default function CategoriesReducer(state = initialState, action) {
     case "SELECT_ELECTRONICS_CATEGORY":
 
       return { activeCategory: newCategory, categories: categories };
+      
     default:
       return state;
   }
