@@ -38,7 +38,7 @@ const CategoryPicker = (props) => {
                   </Typography>
         </Grid>
         <Grid item xs={12}>
-      <Typography className={classes.uppercase} gutterBottom variant="h3" component="h3">
+      <Typography className={classes.uppercase} gutterBottom variant="h4" component="h4">
                     {props.categoryDescription}
                   </Typography>
         </Grid>

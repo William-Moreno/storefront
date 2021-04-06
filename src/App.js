@@ -14,7 +14,7 @@ function App() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Provider store={store()}>
           <Header />
           <Categories />
