@@ -14,7 +14,7 @@ Today, we begin the first of a 4-Phase build of the storefront application, writ
 
 The Virtual Store can be found here on Netlify:
 
-[Virtual Store](https://zen-khorana-6553d5.netlify.app/)
+[Virtual Store](https://hardcore-wright-bd2382.netlify.app/)
 
 ## Features
 
