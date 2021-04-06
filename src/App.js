@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 
 import Header from './components/header/Header.js';
 import Categories from './components/storefront/Categories.js';
+import Products from './components/storefront/Products.js';
 import './App.css';
 import store from './store/index.js';
 import Footer from './components/footer/Footer.js';
@@ -18,7 +19,8 @@ function App() {
         <Provider store={store()}>
           <Header />
           <Categories />
-          <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '75vh' }} />
+          <Products />
+          {/* <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '75vh' }} /> */}
           <Footer />
         </Provider>
       </Container>
