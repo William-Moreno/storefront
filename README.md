@@ -1,4 +1,4 @@
-# Hooks API
+# Virtual Store
 
 ### Lab 36
 Virtual Store Phase 1: For this assignment, you will be starting the process of creating an e-Commerce storefront using React with Redux, coupled with your live API server
@@ -12,7 +12,7 @@ Today, we begin the first of a 4-Phase build of the storefront application, writ
 
 ## Getting Started
 
-The Hooks API can be found here on Netlify:
+The Virtual Store can be found here on Netlify:
 
 [Virtual Store](https://zen-khorana-6553d5.netlify.app/)
 
