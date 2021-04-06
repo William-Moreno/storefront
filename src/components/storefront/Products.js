@@ -49,6 +49,9 @@ const useStyles = makeStyles({
                   <Typography variant="body2" color="textSecondary" component="p">
                     {product.description}
                   </Typography>
+                  <Typography variant="h6"  component="h6">
+                    ${(product.price).toFixed(2)}
+                  </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
