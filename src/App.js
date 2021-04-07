@@ -8,6 +8,7 @@ import './App.css';
 import Header from './components/header/Header.js';
 import SimpleCart from './components/cart/SimpleCart.js';
 import Categories from './components/storefront/Categories.js';
+import CurrentCategory from './components/storefront/Current-category.js';
 import Products from './components/storefront/Products.js';
 import store from './store/index.js';
 import Footer from './components/footer/Footer.js';
@@ -26,8 +27,8 @@ function App() {
             <Grid item xs={3}>
           <SimpleCart />
             </Grid>
-            <Grid item xs={12}>
-              <h1>Placeholder</h1>
+            <Grid item xs={9}>
+              <CurrentCategory />
             </Grid>
           </Grid>
           <Products />
