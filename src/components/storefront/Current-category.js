@@ -17,14 +17,14 @@ const CurrentCategory = (props) => {
     <div>
       <Grid container justify="center" align="center" style={{ margin: '24px auto' }}>
         <Grid item xs={12} justify="center">
-      <Typography className={classes.uppercase} gutterBottom variant="h1" component="h2">
-                    {props.activeCategory}
-                  </Typography>
+          <Typography className={classes.uppercase} gutterBottom variant="h1" component="h2">
+            {props.activeCategory}
+          </Typography>
         </Grid>
         <Grid item xs={12}>
-      <Typography className={classes.uppercase} gutterBottom variant="h4" component="h4">
-                    {props.categoryDescription}
-                  </Typography>
+          <Typography className={classes.uppercase} gutterBottom variant="h4" component="h4">
+            {props.categoryDescription}
+          </Typography>
         </Grid>
       </Grid>
     </div>

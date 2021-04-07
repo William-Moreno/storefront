@@ -10,17 +10,17 @@ const CategoryPicker = (props) => {
     <div>
       <div>
         <h3>
-        Browse Our Products by Category
+          Browse Our Products by Category
         </h3>
       </div>
       <Grid container style={{ padding: '5px' }}>
-      {props.categories.map(category => {
-        return (          
+        {props.categories.map(category => {
+          return (          
             <Button style={{ margin: '0 6px 0 0' }} variant="contained" color="default" onClick={() => props.selectCategory(category.name)}>
               {category.name}
             </Button>
-        )
-      })}
+          )
+        })}
       </Grid>
     </div>
   )
