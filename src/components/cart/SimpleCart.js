@@ -16,22 +16,22 @@ const CartDisplay = (props) => {
   const [dense] = React.useState(false);
   return (
 
-<div>
-        <Paper evelation={3}>
-      <List dense={dense}>
-                  <ListItem>
+    <div>
+      <Paper evelation={3}>
+        <List dense={dense}>
+          <ListItem>
+            <ListItemText
+            primary="Shopping Cart"
+            />
+          </ListItem>
+          <If condition={props.cart.length > 0}>
+            {props.cart.map(item => {
+              return (
+                <ListItem key={item.name}>
                   <ListItemText
-                    primary="Shopping Cart"
-                    />
-                </ListItem>
-      <If condition={props.cart.length > 0}>
-      {props.cart.map(item => {
-        return (
-          <ListItem key={item.name}>
-                  <ListItemText
-                    primary={item.name}
-                    secondary={item.inCart}
-                    />
+                  primary={item.name}
+                  secondary={item.inCart}
+                  />
                   <ListItemSecondaryAction>
                     <IconButton onClick={() => props.removeFromCart(item)} color="secondary" edge="end" aria-label="delete">
                       <DeleteIcon  />
@@ -40,9 +40,9 @@ const CartDisplay = (props) => {
                 </ListItem>
               )
             })}
-      </If>
-            </List>
-          </Paper>
+          </If>
+        </List>
+      </Paper>
     </div>
   )
 }
