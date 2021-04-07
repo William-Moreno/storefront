@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectCategory } from '../../store/categories.js';
+import { addToCart } from '../../store/cart.js';
 import { If } from '../if/If.js';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,7 +34,7 @@ const useStyles = makeStyles({
     <Grid container spacing={4} className={classes.gridContainer} justify="center">
       {props.products.map(product => {
         return (
-          <If condition={product.active}>
+          <If condition={product.active && product.inventory > 0}>
             <Grid item xs={12} sm={6} md={4} lg={3}>
             <Card className={classes.root} raised>
               <CardActionArea>
@@ -55,7 +56,7 @@ const useStyles = makeStyles({
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={() => props.addToCart(product)}>
                   ADD TO CART
                 </Button>
                 <Button size="small" color="primary">
@@ -78,7 +79,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  selectCategory
+  selectCategory,
+  addToCart,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay);

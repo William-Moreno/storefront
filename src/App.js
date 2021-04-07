@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import './App.css';
 
 import Header from './components/header/Header.js';
+import SimpleCart from './components/cart/SimpleCart.js';
 import Categories from './components/storefront/Categories.js';
 import Products from './components/storefront/Products.js';
 import store from './store/index.js';
@@ -17,6 +18,7 @@ function App() {
       <Container maxWidth="xl">
         <Provider store={store()}>
           <Header />
+          <SimpleCart />
           <Categories />
           <Products />
           <Footer />
