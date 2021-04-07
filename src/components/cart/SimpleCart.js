@@ -33,7 +33,7 @@ const CartDisplay = (props) => {
                     secondary={item.inCart}
                     />
                   <ListItemSecondaryAction>
-                    <IconButton onClick={() => props.removeFromCart(item)} edge="end" aria-label="delete">
+                    <IconButton onClick={() => props.removeFromCart(item)} color="secondary" edge="end" aria-label="delete">
                       <DeleteIcon  />
                     </IconButton>
                   </ListItemSecondaryAction>
