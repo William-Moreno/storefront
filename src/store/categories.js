@@ -29,7 +29,7 @@ export default function CategoriesReducer(state = initialState, action) {
 
       categories = state.categories.map(category => {
         if(category.name === payload) {
-          return{ name: category.name, active: true };
+          return { name: category.name, active: true };
         }
         return { name: category.name, active: false };
       });
@@ -53,11 +53,3 @@ export function selectCategory(name) {
     payload: name,
   }
 }
-
-// export function selectElectronics(category) {
-
-//   return {
-//     type: "SELECT_ELECTRONICS_CATEGORY",
-//     payload: category,
-//   }
-// }
