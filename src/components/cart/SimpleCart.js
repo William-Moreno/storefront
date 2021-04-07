@@ -7,17 +7,26 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 // import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Paper from '@material-ui/core/Paper';
 
+const useStyles = makeStyles({
+  cart: {
+    position: 'absolute',
+    maxHeight: '30vh',
+    overflow: 'scroll',
+  }
+});
 
 const CartDisplay = (props) => {
   const [dense] = React.useState(false);
+  const classes = useStyles();
   return (
 
     <div>
-      <Paper evelation={3}>
+      <Paper className={classes.cart} evelation={3}>
         <List dense={dense}>
           <ListItem>
             <ListItemText
