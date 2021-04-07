@@ -1,8 +1,9 @@
 let initialState = {
   cart: [],
+  cartCount: 0,
 };
 let cart;
-
+let changeCount;
 
 export default function CartReducer(state = initialState, action) {
   let { type, payload } = action;
@@ -26,7 +27,7 @@ export default function CartReducer(state = initialState, action) {
         newItem.inCart = 1;
         newItem.inventory = newItem.inventory - 1;
         cartArray.push(newItem);
-        return { cart: cartArray }
+        return { cartCount: state.cartCount + 1, cart: cartArray }
       } else {
         cart = state.cart.map(item => {
           if(item.name === payload.name) {
@@ -36,12 +37,12 @@ export default function CartReducer(state = initialState, action) {
         });
       }
 
-      return { cart: cart };
+      return { cartCount: state.cartCount + 1, cart: cart };
 
     case "REMOVE_FROM_CART":
 
       let removeArray = [...state.cart];
-      let removeItem = payload;
+      changeCount = state.cartCount - payload.inCart;
 
       cart = state.cart.map(item => {
         if(item.name === payload.name) {
@@ -51,7 +52,7 @@ export default function CartReducer(state = initialState, action) {
         return { active: item.active, category: item.category, name: item.name, url: item.url, description: item.description, price: item.price, inventory: item.inventory, inCart: item.inCart };
       });
 
-      return { cart: removeArray };
+      return { cartCount: changeCount, cart: removeArray };
       
     default:
       return state;

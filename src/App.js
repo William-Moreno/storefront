@@ -2,6 +2,7 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import './App.css';
 
 import Header from './components/header/Header.js';
@@ -15,11 +16,20 @@ function App() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Provider store={store()}>
           <Header />
-          <SimpleCart />
+          <Grid container spacing={2}>
+            <Grid item xs={9}>
           <Categories />
+            </Grid>
+            <Grid item xs={3}>
+          <SimpleCart />
+            </Grid>
+            <Grid item xs={12}>
+              <h1>Placeholder</h1>
+            </Grid>
+          </Grid>
           <Products />
           <Footer />
         </Provider>
