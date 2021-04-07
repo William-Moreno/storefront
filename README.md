@@ -56,9 +56,16 @@ Repository created. Create-react-app used to create project folder. Folder loade
 App deployed on Netlify.
 
 ### Lab 37
+Added cart.js to store. Created a reducer and actions for the cart to facilitate adding and removing products. Piggy-backed off of the same actions to regulate levels of inventory in the products store. Added functionality to prevent products with no current inventory from showing on the products page. Separated the cuurent-category into its own rendering component. Added a shopping cart count to the right side of the head that keeps a running tally of the amount of items in the cart. Added the SimpleCart component to the page which is always visible and renders all products in the cart. Styled all of the new elements using material-ui.
+
+App redeployed on Netlify.
 
 ## UML
 
 UML drawing created with [miro](https://miro.com/)
 
+### Lab 36
 ![storefront Whiteboard](./assets/storefront-1.PNG)
+
+### Lab 37
+![storefront Whiteboard](./assets/storefront-2.PNG)
