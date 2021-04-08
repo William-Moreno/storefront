@@ -9,6 +9,7 @@ const CategoryPicker = (props) => {
 
   useEffect(() => {
     props.loadCategories();
+    // eslint-disable-next-line
   }, []);
 
   return (

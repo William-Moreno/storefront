@@ -32,6 +32,7 @@ const useStyles = makeStyles({
 
   useEffect(() => {
     props.loadProducts();
+    // eslint-disable-next-line
   }, []);
 
   const classes = useStyles();
