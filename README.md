@@ -6,6 +6,9 @@ Virtual Store Phase 1: For this assignment, you will be starting the process of 
 ### Lab 37
 Virtual Store Phase 2: Continue work on the e-Commerce storefront, breaking up the store into multiple reducers and sharing functionality/data between components
 
+### Lab 38
+Virtual Store Phase 3: Connect the Virtual Store to an API to retrieve live data from your data source, using thunk to enable asynchronous actions
+
 ## Overview
 
 ### Lab 36
@@ -13,6 +16,9 @@ Today, we begin the first of a 4-Phase build of the storefront application, writ
 
 ### Lab 37
 In phase 2, we will be adding the “Add to Cart” feature to our application, which will allow our users to not only browse items in the store, but also select them and have them persist in their “shopping cart” for later purchase.
+
+### Lab 38
+In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
 
 ## Author: William Moreno
 
@@ -48,6 +54,10 @@ The Virtual Store can be found here on Netlify:
     - Change the (0) indicator in the header to show the actual number of items in the cart
     - Reduce the number in stock for that product
 
+### Lab 38
+- Load the category and product list from a remote API on page load.
+- Update the product quantity in stock when adding items to (or removing from) the cart
+
 ## Process
 
 ### Lab 36
@@ -57,6 +67,11 @@ App deployed on Netlify.
 
 ### Lab 37
 Added cart.js to store. Created a reducer and actions for the cart to facilitate adding and removing products. Piggy-backed off of the same actions to regulate levels of inventory in the products store. Added functionality to prevent products with no current inventory from showing on the products page. Separated the cuurent-category into its own rendering component. Added a shopping cart count to the right side of the head that keeps a running tally of the amount of items in the cart. Added the SimpleCart component to the page which is always visible and renders all products in the cart. Styled all of the new elements using material-ui.
+
+App redeployed on Netlify.
+
+### Lab 38
+Connected virtual store to the js401 API `products` and `categories` servers by modifying categories and products files in store and components. imported 'redux-thunk' and updated index.js with it and applyMiddleware. Updated rendering from categories, current-category and product components. Created a json-server and populated it for testing. Created `DEPLETE_STOCK` and `RETURN_TO_STOCK` actions/functions to adjust inventory through axios `put` requests. Wrote tests to test reducers and actions. All tests passed. **NOTE - THE TESTS FOR THE LAST TWO MENTIONED ACTIONS ONLY WORK WHEN JSON_SERVER AND ITS DATABASE ARE RUNNING ON LOCALHOST:3000**
 
 App redeployed on Netlify.
 

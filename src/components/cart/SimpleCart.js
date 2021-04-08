@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../store/cart.js';
+import { returnToStock } from '../../store/products.js';
 import { If } from '../if/If.js';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -16,7 +17,8 @@ const useStyles = makeStyles({
   cart: {
     position: 'absolute',
     maxHeight: '30vh',
-    overflow: 'scroll',
+    width: '22vw',
+    overflow: 'auto',
   }
 });
 
@@ -42,7 +44,9 @@ const CartDisplay = (props) => {
                   secondary={item.inCart}
                   />
                   <ListItemSecondaryAction>
-                    <IconButton onClick={() => props.removeFromCart(item)} color="secondary" edge="end" aria-label="delete">
+                    <IconButton onClick={() => {props.removeFromCart(item);
+                    props.returnToStock(item);
+                    }}  color="secondary" edge="end" aria-label="delete">
                       <DeleteIcon  />
                     </IconButton>
                   </ListItemSecondaryAction>
@@ -64,6 +68,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   removeFromCart,
+  returnToStock,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartDisplay);
