@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { selectCategory } from '../../store/categories.js';
+import { loadProducts, depleteStock } from '../../store/products.js';
 import { addToCart } from '../../store/cart.js';
 import { If } from '../if/If.js';
 
@@ -29,18 +29,23 @@ const useStyles = makeStyles({
 
   
   const ProductDisplay = (props) => {
+
+  useEffect(() => {
+    props.loadProducts();
+  }, []);
+
   const classes = useStyles();
   return (
     <Grid container spacing={4} className={classes.gridContainer} justify="center">
       {props.products.map(product => {
         return (
-          <If condition={product.active && product.inventory > 0}>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Card className={classes.root} raised>
+          <If condition={product.category === props.activeCategory && product.inStock > 0}>
+            <Grid key={product._id} item xs={12} sm={6} md={4} lg={3}>
+            <Card  className={classes.root} raised>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image={product.url}
+                  image="https://source.unsplash.com/random?placeholder"
                   title={product.name}
                 />
                 <CardContent>
@@ -56,7 +61,8 @@ const useStyles = makeStyles({
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary" onClick={() => props.addToCart(product)}>
+                <Button size="small" color="primary" onClick={() => {props.addToCart(product);
+                props.depleteStock(product)}}>
                   ADD TO CART
                 </Button>
                 <Button size="small" color="primary">
@@ -75,12 +81,14 @@ const useStyles = makeStyles({
 const mapStateToProps = (state) => {
   return {
     products: state.products.products,
+    activeCategory: state.categories.activeCategory,
   }
 }
 
 const mapDispatchToProps = {
-  selectCategory,
+  loadProducts,
   addToCart,
+  depleteStock,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay);

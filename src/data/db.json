@@ -1,0 +1,77 @@
+{
+  "products": [
+    {
+      "_id": "5f1a5f861910080017657ed7",
+      "name": "TV",
+      "category": "electronics",
+      "inStock": 1957,
+      "price": 699,
+      "id": "5f1a5f861910080017657ed7"
+    },
+    {
+      "id": "5f1a51f71910080017657ed3",
+      "name": "Monitor",
+      "category": "electronics",
+      "inStock": 954,
+      "price": 100.99,
+      "__v": 0
+    },
+    {
+      "id": "5f1a51ff1910080017657ed4",
+      "name": "Mouse",
+      "category": "electronics",
+      "inStock": 973,
+      "price": 100.99,
+      "__v": 0
+    },
+    {
+      "_id": "5f1a5faf1910080017657ed8",
+      "name": "Calzones",
+      "category": "food",
+      "inStock": 919,
+      "price": 100.1,
+      "__v": 0,
+      "id": "5f1a5faf1910080017657ed8"
+    },
+    {
+      "id": "5f1a51f01910080017657ed2",
+      "name": "1TB USB",
+      "category": "electronics",
+      "inStock": 960,
+      "price": 100.99,
+      "__v": 0
+    },
+    {
+      "_id": "5f1a5f761910080017657ed6",
+      "name": "Apples",
+      "category": "food",
+      "inStock": 977,
+      "price": 100.1,
+      "__v": 0,
+      "id": "5f1a5f761910080017657ed6"
+    },
+    {
+      "_id": "5f1a52031910080017657ed5",
+      "name": "Keyboard",
+      "category": "electronics",
+      "inStock": null,
+      "price": 100.99,
+      "__v": 0,
+      "id": "5f1a52031910080017657ed5"
+    }
+  ],
+  "categories": [
+    {
+      "id": "5f0cdc15acac790017fc26ce",
+      "name": "food",
+      "description": "Stuff for you to eat",
+      "__v": 0
+    },
+    {
+      "id": "5f0cdc25acac790017fc26cf",
+      "name": "electronics",
+      "description": "Making your life easier, one volt at a time",
+      "__v": 0
+    }
+  ]
+}

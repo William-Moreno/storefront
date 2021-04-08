@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { selectCategory } from '../../store/categories.js';
+import { selectCategory, loadCategories } from '../../store/categories.js';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 
 const CategoryPicker = (props) => {
+
+  useEffect(() => {
+    props.loadCategories();
+  }, []);
+
   return (
     <div>
       <div>
@@ -16,7 +21,7 @@ const CategoryPicker = (props) => {
       <Grid container style={{ padding: '5px' }}>
         {props.categories.map(category => {
           return (          
-            <Button style={{ margin: '0 6px 0 0' }} variant="contained" color="default" onClick={() => props.selectCategory(category.name)}>
+            <Button key={category._id} style={{ margin: '0 6px 0 0' }} variant="contained" color="default" onClick={() => props.selectCategory(category)}>
               {category.name}
             </Button>
           )
@@ -35,7 +40,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  selectCategory
+  selectCategory,
+  loadCategories
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryPicker);

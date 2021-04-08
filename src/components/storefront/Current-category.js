@@ -16,7 +16,7 @@ const CurrentCategory = (props) => {
   return (
     <div>
       <Grid container justify="center" align="center" style={{ margin: '24px auto' }}>
-        <Grid item xs={12} justify="center">
+        <Grid item xs={12}>
           <Typography className={classes.uppercase} gutterBottom variant="h1" component="h2">
             {props.activeCategory}
           </Typography>

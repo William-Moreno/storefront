@@ -25,15 +25,15 @@ export default function CartReducer(state = initialState, action) {
 
       if(!itemExists) {
         newItem.inCart = 1;
-        newItem.inventory = newItem.inventory - 1;
+        newItem.inStock = newItem.inStock - 1;
         cartArray.push(newItem);
         return { cartCount: state.cartCount + 1, cart: cartArray }
       } else {
         cart = state.cart.map(item => {
           if(item.name === payload.name) {
-            return { active: item.active, category: item.category, name: item.name, url: item.url, description: item.description, price: item.price, inventory: item.inventory - 1, inCart: item.inCart + 1 };
+            return { _id: item._id, name: item.name, category: item.category, inStock: item.inStock - 1, price: item.price, __v: item.__v, inCart: item.inCart + 1 };
           }
-          return { active: item.active, category: item.category, name: item.name, url: item.url, description: item.description, price: item.price, inventory: item.inventory, inCart: item.inCart };
+          return { _id: item._id, name: item.name, category: item.category, inStock: item.inStock, price: item.price, __v: item.__v, inCart: item.inCart };
         });
       }
 
@@ -49,7 +49,7 @@ export default function CartReducer(state = initialState, action) {
           let tempRemove = removeArray.indexOf(item);
           removeArray.splice(tempRemove, 1);
         }
-        return { active: item.active, category: item.category, name: item.name, url: item.url, description: item.description, price: item.price, inventory: item.inventory, inCart: item.inCart };
+        return { _id: item._id, name: item.name, category: item.category, inStock: item.inStock, price: item.price, __v: item.__v, inCart: item.inCart };
       });
 
       return { cartCount: changeCount, cart: removeArray };
