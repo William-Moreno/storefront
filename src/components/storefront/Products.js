@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { loadProducts, depleteStock } from '../../store/products.js';
-import { addToCart } from '../../store/cart.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { get } from '../../store-toolkit/products.slice.js';
+import { addToCart } from '../../store-toolkit/cart.slice.js';
+import { setDetail } from '../../store-toolkit/details.slice.js';
+import { Link } from 'react-router-dom';
 import { If } from '../if/If.js';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,19 +30,26 @@ const useStyles = makeStyles({
 });
 
   
-  const ProductDisplay = (props) => {
+export default function ProductDisplay() {
+
+  let productList = useSelector(state => state.products);
+  let categoryInfo = useSelector(state => state.categories);
+  let detailInfo = useSelector(state => state.details);
+
+  let dispatch = useDispatch();
 
   useEffect(() => {
-    props.loadProducts();
+    dispatch(get());
     // eslint-disable-next-line
   }, []);
 
   const classes = useStyles();
   return (
     <Grid container spacing={4} className={classes.gridContainer} justify="center">
-      {props.products.map(product => {
+      {productList.map(product => {
+        let linkUrl = `/products/${product._id}`;
         return (
-          <If condition={product.category === props.activeCategory && product.inStock > 0}>
+          <If condition={product.category === categoryInfo.activeCategory && product.inStock > 0}>
             <Grid key={product._id} item xs={12} sm={6} md={4} lg={3}>
             <Card  className={classes.root} raised>
               <CardActionArea>
@@ -59,16 +68,18 @@ const useStyles = makeStyles({
                   <Typography variant="h6"  component="h6">
                     ${(product.price).toFixed(2)}
                   </Typography>
+                  <Typography variant="p"  component="p">
+                    Stock on Hand: {product.inStock}
+                  </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary" onClick={() => {props.addToCart(product);
-                props.depleteStock(product)}}>
+                <Button size="small" color="primary" onClick={() => dispatch(addToCart(product))}>
                   ADD TO CART
                 </Button>
-                <Button size="small" color="primary">
+                <Link to={linkUrl} onClick={() => dispatch(setDetail(product))} size="small" color="primary">
                   VIEW DETAILS
-                </Button>
+                </Link>
               </CardActions>
             </Card>
             </Grid>
@@ -79,17 +90,17 @@ const useStyles = makeStyles({
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products.products,
-    activeCategory: state.categories.activeCategory,
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     products: state.products.products,
+//     activeCategory: state.categories.activeCategory,
+//   }
+// }
 
-const mapDispatchToProps = {
-  loadProducts,
-  addToCart,
-  depleteStock,
-}
+// const mapDispatchToProps = {
+//   loadProducts,
+//   addToCart,
+//   depleteStock,
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay);
+// export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay);

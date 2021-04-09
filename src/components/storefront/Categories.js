@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
+import { get, change } from '../../store-toolkit/categories.slice.js';
 import { selectCategory, loadCategories } from '../../store/categories.js';
+
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 
-const CategoryPicker = (props) => {
+export default function CategoryPicker() {
+
+  let categoryInfo = useSelector(state => state.categories);
+
+  let dispatch = useDispatch();
 
   useEffect(() => {
-    props.loadCategories();
+    dispatch(get());
     // eslint-disable-next-line
   }, []);
 
@@ -20,9 +26,9 @@ const CategoryPicker = (props) => {
         </h3>
       </div>
       <Grid container style={{ padding: '5px' }}>
-        {props.categories.map(category => {
+        {categoryInfo.categories.map(category => {
           return (          
-            <Button key={category._id} style={{ margin: '0 6px 0 0' }} variant="contained" color="default" onClick={() => props.selectCategory(category)}>
+            <Button key={category._id} style={{ margin: '0 6px 0 0' }} variant="contained" color="default" onClick={() => dispatch(change(category))}>
               {category.name}
             </Button>
           )
@@ -32,17 +38,17 @@ const CategoryPicker = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    categories: state.categories.categories,
-    activeCategory: state.categories.activeCategory,
-    categoryDescription: state.categories.categoryDescription,
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     categories: state.categories.categories,
+//     activeCategory: state.categories.activeCategory,
+//     categoryDescription: state.categories.categoryDescription,
+//   }
+// }
 
-const mapDispatchToProps = {
-  selectCategory,
-  loadCategories
-}
+// const mapDispatchToProps = {
+//   selectCategory,
+//   loadCategories
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryPicker);
+// export default connect(mapStateToProps, mapDispatchToProps)(CategoryPicker);
