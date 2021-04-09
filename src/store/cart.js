@@ -48,6 +48,7 @@ export default function CartReducer(state = initialState, action) {
         if(item.name === payload.name) {
           let tempRemove = removeArray.indexOf(item);
           removeArray.splice(tempRemove, 1);
+          return;
         }
         return { _id: item._id, name: item.name, category: item.category, inStock: item.inStock, price: item.price, __v: item.__v, inCart: item.inCart };
       });

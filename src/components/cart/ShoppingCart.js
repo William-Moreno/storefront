@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../../store-toolkit/cart.slice.js';
 import { If } from '../if/If.js';
@@ -15,7 +16,6 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
   cart: {
     position: 'absolute',
-    right: 0,
     maxHeight: '30vh',
     width: '22vw',
     overflow: 'auto',
@@ -63,16 +63,3 @@ export default function CartDisplay() {
     </div>
   )
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     cart: state.cart.cart,
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   removeFromCart,
-//   returnToStock,
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CartDisplay);
