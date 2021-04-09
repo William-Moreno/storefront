@@ -34,7 +34,6 @@ export default function ProductDisplay() {
 
   let productList = useSelector(state => state.products);
   let categoryInfo = useSelector(state => state.categories);
-  let detailInfo = useSelector(state => state.details);
 
   let dispatch = useDispatch();
 
@@ -89,18 +88,3 @@ export default function ProductDisplay() {
     </Grid>
   );
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     products: state.products.products,
-//     activeCategory: state.categories.activeCategory,
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   loadProducts,
-//   addToCart,
-//   depleteStock,
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ProductDisplay);

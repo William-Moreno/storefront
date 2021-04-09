@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCategory } from '../../store/categories.js';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,16 +35,3 @@ export default function Header() {
     )
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     cart: state.cart.cart,
-//     cartCount: state.cart.cartCount,
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   selectCategory,
-// }
-
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Header);

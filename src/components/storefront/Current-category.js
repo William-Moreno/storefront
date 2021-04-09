@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
-import { selectCategory } from '../../store/categories.js';
+import { useSelector } from 'react-redux';
+
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,16 +33,3 @@ export default function CurrentCategory() {
     </div>
   )
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     activeCategory: state.categories.activeCategory,
-//     categoryDescription: state.categories.categoryDescription,
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   selectCategory
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CurrentCategory);
