@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { get, change } from '../../store-toolkit/categories.slice.js';
-import { selectCategory, loadCategories } from '../../store/categories.js';
 
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -37,18 +36,3 @@ export default function CategoryPicker() {
     </div>
   )
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     categories: state.categories.categories,
-//     activeCategory: state.categories.activeCategory,
-//     categoryDescription: state.categories.categoryDescription,
-//   }
-// }
-
-// const mapDispatchToProps = {
-//   selectCategory,
-//   loadCategories
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CategoryPicker);
